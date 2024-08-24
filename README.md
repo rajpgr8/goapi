@@ -11,6 +11,10 @@ internal -> for most of the code
 go mod init github.com/rajpgr8/goapi
 go mod tidy
 go run cmd/api/main.go
+
+Test:
+curl --location 'http://localhost:8080/account/coins?username=alex' \
+--header 'Authorization: 123ABC'
 ```
 
 ##### CGO_ENABLED 
