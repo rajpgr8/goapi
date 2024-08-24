@@ -1,12 +1,16 @@
 package handlers
 
 import (
+	"fmt"
+
+	"github.com/avukadin/goapi/internal/middleware"
 	"github.com/go-chi/chi"
 	chimiddle "github.com/go-chi/chi/middleware"
-	"github.com/avukadin/goapi/internal/middleware"
 )
 
 func Handler(r *chi.Mux) {
+	fmt.Println("Starting Handler...")
+
 	// Global middleware
 	r.Use(chimiddle.StripSlashes)
 
@@ -16,5 +20,6 @@ func Handler(r *chi.Mux) {
 		router.Use(middleware.Authorization)
 
 		router.Get("/coins", GetCoinBalance)
+
 	})
 }

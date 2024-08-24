@@ -2,15 +2,17 @@ package handlers
 
 import (
 	"encoding/json"
+	"fmt"
 	"net/http"
 
 	"github.com/avukadin/goapi/api"
 	"github.com/avukadin/goapi/internal/tools"
-	log "github.com/sirupsen/logrus"
 	"github.com/gorilla/schema"
+	log "github.com/sirupsen/logrus"
 )
 
 func GetCoinBalance(w http.ResponseWriter, r *http.Request) {
+	fmt.Println("Starting GetCoinBalance...")
 	var params = api.CoinBalanceParams{}
 	var decoder *schema.Decoder = schema.NewDecoder()
 	var err error
@@ -50,4 +52,5 @@ func GetCoinBalance(w http.ResponseWriter, r *http.Request) {
 		api.InternalErrorHandler(w)
 		return
 	}
+	fmt.Println("End GetCoinBalance: Response Code: ", response.Code)
 }
