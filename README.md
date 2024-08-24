@@ -10,6 +10,7 @@ internal -> for most of the code
 ```
 go mod init github.com/rajpgr8/goapi
 go mod tidy
+go run cmd/api/main.go
 ```
 
 ##### CGO_ENABLED 
