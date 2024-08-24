@@ -15,6 +15,11 @@ go run cmd/api/main.go
 Test:
 curl --location 'http://localhost:8080/account/coins?username=alex' \
 --header 'Authorization: 123ABC'
+
+
+docker build -t goapi . --no-cache   --progress plain
+docker -p 8081:8081 run goapi 
+
 ```
 
 ##### CGO_ENABLED 
